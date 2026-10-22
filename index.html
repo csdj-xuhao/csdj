@@ -4,24 +4,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#050a12">
+<meta name="theme-color" content="#050812">
 
-<title>傳說對決｜十週年紀念活動</title>
-<meta name="description" content="傳說對決十週年主題活動資訊，查看活動內容。">
+<title>傳說對決｜十週年活動專區</title>
+<meta name="description" content="傳說對決主題活動專區，探索活動資訊與精彩內容。">
 
-<!-- LINE 分享預覽 -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="傳說對決｜十週年紀念活動">
-<meta property="og:description" content="十週年限定活動・紀念福利與活動資訊">
+<meta property="og:title" content="傳說對決｜十週年活動專區">
+<meta property="og:description" content="十週年紀念活動・探索精彩遊戲內容">
 <meta property="og:url" content="https://krakervonnie-copuon.github.io/bishengke-copuon/">
 <meta property="og:image" content="https://krakervonnie-copuon.github.io/bishengke-copuon/aov-event.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:site_name" content="傳說對決">
+<meta property="og:site_name" content="傳說對決活動專區">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="傳說對決｜十週年紀念活動">
-<meta name="twitter:description" content="十週年限定活動・紀念福利與活動資訊">
+<meta name="twitter:title" content="傳說對決｜十週年活動專區">
+<meta name="twitter:description" content="十週年紀念活動・探索精彩遊戲內容">
 <meta name="twitter:image" content="https://krakervonnie-copuon.github.io/bishengke-copuon/aov-event.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,26 +29,27 @@
 
 <style>
 :root {
-  color-scheme: dark;
-  --bg: #050910;
-  --panel: #0b1420;
-  --cyan: #00e5f5;
-  --cyan-dim: #06414c;
-  --white: #f5f8fc;
-  --muted: #8994a5;
+  --bg: #050812;
+  --panel: #0b1220;
+  --cyan: #00eaff;
+  --blue: #276bff;
+  --gold: #e8ca86;
+  --white: #f4f7ff;
+  --muted: #8793a8;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  min-height: 100vh;
-  background:
-    radial-gradient(ellipse at 50% 20%, #0a1b31 0%, transparent 50%),
-    var(--bg);
   color: var(--white);
+  background: var(--bg);
   font-family: "Noto Sans TC", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -59,345 +59,497 @@ a {
   text-decoration: none;
 }
 
-.topbar {
-  min-height: 54px;
-  padding: 10px 14px;
+.site {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.site::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 auto;
+  height: 650px;
+  background:
+    radial-gradient(ellipse at 50% 20%,
+      rgba(23, 78, 180, .23), transparent 65%),
+    linear-gradient(180deg, #091323, #050812);
+  pointer-events: none;
+}
+
+/* 頂部導覽 */
+.nav {
+  height: 64px;
+  padding: 0 22px;
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(5, 10, 18, .96);
   border-bottom: 1px solid rgba(255,255,255,.07);
+  background: rgba(5,8,18,.88);
 }
 
 .logo {
-  width: 31px;
-  height: 31px;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
   display: grid;
   place-items: center;
-  flex-shrink: 0;
-  border-radius: 8px;
-  color: #050910;
-  background: #f6f8fb;
+  border: 1px solid rgba(0,234,255,.55);
+  border-radius: 9px;
+  background: linear-gradient(145deg,#14263b,#080e19);
+  color: var(--cyan);
   font-size: 11px;
   font-weight: 900;
+  box-shadow: 0 0 18px rgba(0,234,255,.08);
 }
 
 .brand {
   display: flex;
   flex-direction: column;
-  line-height: 1.25;
+  gap: 2px;
 }
 
 .brand strong {
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.brand span {
-  color: #788393;
-  font-size: 8px;
-  letter-spacing: 1px;
-}
-
-.partner {
-  margin-left: 12px;
   font-size: 13px;
-  font-style: italic;
   font-weight: 900;
 }
 
-.top-tag {
+.brand small {
+  color: #8493aa;
+  font-size: 8px;
+  letter-spacing: 1.7px;
+}
+
+.nav-right {
   margin-left: auto;
-  padding: 6px 10px;
-  border: 1px solid #25313d;
+  padding: 7px 12px;
+  border: 1px solid rgba(0,234,255,.2);
   border-radius: 99px;
-  color: #dce4ed;
-  background: #101923;
+  background: rgba(0,234,255,.055);
+  color: #c4faff;
   font-size: 10px;
   white-space: nowrap;
 }
 
-.top-tag i {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
+.nav-right span {
+  color: var(--cyan);
   margin-right: 5px;
-  border-radius: 50%;
-  background: #00e5a0;
 }
 
-main {
-  width: 100%;
-  max-width: 760px;
+/* 主視覺 */
+.container {
+  width: min(100% - 32px, 900px);
   margin: 0 auto;
-  padding: 16px 9px 36px;
 }
 
 .hero {
-  height: clamp(210px, 46vw, 290px);
-  overflow: hidden;
+  margin-top: 20px;
+  height: clamp(220px, 48vw, 370px);
   position: relative;
-  border: 1px solid rgba(83, 129, 255, .35);
-  border-radius: 22px;
-  background: #071d54;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(74,145,255,.5);
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at 50% 30%, #244fda, transparent 52%),
+    linear-gradient(125deg,#071638,#102c83 52%,#080e30);
+  box-shadow:
+    0 0 0 1px rgba(0,234,255,.035),
+    0 18px 55px rgba(0,0,0,.3);
 }
 
-.hero img {
-  display: block;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(115deg, transparent 48%,
+      rgba(0,234,255,.2) 48.2%, transparent 48.7%),
+    linear-gradient(65deg, transparent 66%,
+      rgba(99,76,255,.5) 66.2%, transparent 67%),
+    radial-gradient(ellipse at 70% 90%,
+      rgba(0,234,255,.25), transparent 42%);
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  z-index: -1;
 }
 
-.hero-empty {
+.hero-shade {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  color: #d8e7ff;
-  background:
-    radial-gradient(ellipse at 50% 30%, #173fc3 0%, transparent 55%),
-    linear-gradient(135deg, #06153b, #092d86 55%, #080f31);
-  text-align: center;
+  background: linear-gradient(
+    90deg,
+    rgba(4,10,30,.78),
+    rgba(4,10,30,.1) 75%
+  );
+  pointer-events: none;
 }
 
-.hero-empty strong {
-  font-size: 24px;
-  letter-spacing: 5px;
-}
-
-.hero-empty span {
-  color: #9db8f8;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.hero-label {
+.hero-content {
   position: absolute;
-  top: 13px;
-  left: 14px;
-  max-width: calc(100% - 28px);
-  padding: 7px 12px;
-  border: 1px solid rgba(0, 229, 245, .45);
-  border-radius: 99px;
-  background: rgba(3, 12, 30, .88);
-  font-size: 10px;
-  font-weight: 700;
+  left: clamp(18px, 5vw, 44px);
+  bottom: clamp(20px, 5vw, 38px);
+  right: 16px;
 }
 
-.hero-label span {
-  color: var(--cyan);
-}
-
-.pills {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-.pill {
+.hero-kicker {
   display: inline-flex;
   align-items: center;
+  gap: 7px;
+  color: #d8faff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero-kicker::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.hero-title {
+  margin-top: 10px;
+  font-size: clamp(25px, 6vw, 46px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 24px rgba(0,0,0,.4);
+}
+
+.hero-title em {
+  color: var(--cyan);
+  font-style: normal;
+}
+
+.hero-subtitle {
+  margin-top: 10px;
+  color: #c1d1f4;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+}
+
+/* 活動正文 */
+.content {
+  padding: 28px 0 44px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
   gap: 9px;
-  max-width: 100%;
-  padding: 8px 16px;
-  border: 1px solid #007f94;
-  border-radius: 99px;
-  color: #d9faff;
-  background: #071b26;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0,234,255,.42);
+  border-radius: 7px;
+  color: #d7faff;
+  background: rgba(0,234,255,.065);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: .4px;
 }
 
-.pill .new {
-  padding: 3px 9px;
-  border-radius: 99px;
-  color: #001017;
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
   background: var(--cyan);
-  font-size: 9px;
-  font-weight: 900;
+  box-shadow: 0 0 9px var(--cyan);
 }
 
-.pill.secondary {
-  color: #74eaf4;
-  border-color: #07515c;
-  font-size: 10px;
-  letter-spacing: 2px;
+.badge.secondary {
+  border-color: rgba(232,202,134,.24);
+  color: var(--gold);
+  background: rgba(232,202,134,.045);
+  letter-spacing: 1px;
 }
 
 h1 {
-  margin: 23px 0 0;
-  font-size: clamp(35px, 8vw, 48px);
+  margin: 25px 0 0;
+  font-size: clamp(37px, 8vw, 58px);
   font-weight: 900;
-  line-height: 1.28;
+  line-height: 1.22;
   letter-spacing: -1px;
 }
 
-.intro {
-  margin-top: 17px;
-  max-width: 440px;
-  color: #9299a5;
-  font-size: 13px;
-  line-height: 2;
+h1 .accent {
+  color: transparent;
+  background: linear-gradient(100deg,#fff 5%,#a8f7ff 50%,#6b9fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
-.intro strong {
-  color: #e9edf4;
+.description {
+  max-width: 480px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2.05;
+}
+
+.description strong {
+  color: #eaf2ff;
   font-weight: 700;
 }
 
-.cta {
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.primary {
+  min-height: 53px;
+  padding: 0 25px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-width: 180px;
-  min-height: 53px;
-  margin-top: 20px;
-  padding: 15px 24px;
-  border-radius: 99px;
-  color: #001016;
-  background: var(--cyan);
-  box-shadow: 0 8px 30px rgba(0, 229, 245, .19);
-  font-size: 14px;
+  gap: 17px;
+  border: 1px solid rgba(128,250,255,.7);
+  border-radius: 9px;
+  color: #031018;
+  background: linear-gradient(110deg,#00eaff,#49cfff);
+  box-shadow: 0 0 28px rgba(0,234,255,.19);
+  font-size: 13px;
   font-weight: 900;
-  transition: transform .2s, box-shadow .2s;
+  transition: .2s ease;
 }
 
-.cta:hover {
+.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 34px rgba(0, 229, 245, .3);
+  box-shadow: 0 0 36px rgba(0,234,255,.34);
 }
 
-footer {
+.primary .arrow {
+  font-size: 19px;
+}
+
+.secondary-link {
+  padding: 13px 17px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 9px;
+  color: #c2cada;
+  font-size: 12px;
+  transition: .2s ease;
+}
+
+.secondary-link:hover {
+  border-color: rgba(0,234,255,.45);
+  color: white;
+}
+
+.info-line {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 52px;
-  padding: 15px 4px 0;
-  border-top: 1px solid rgba(255,255,255,.07);
-  color: #606a79;
+  gap: 10px;
+  margin-top: 26px;
+  color: #748198;
   font-size: 10px;
   line-height: 1.8;
 }
 
-.footer-tag {
+.info-line::before {
+  content: "";
+  width: 22px;
+  height: 1px;
   flex-shrink: 0;
-  padding: 7px 11px;
-  border: 1px solid #24343e;
-  border-radius: 99px;
-  color: #aab8c5;
-  background: #101b25;
+  background: #315d83;
 }
 
-@media (min-width: 600px) {
-  main {
-    padding-top: 24px;
+/* 頁尾 */
+.footer {
+  border-top: 1px solid rgba(255,255,255,.07);
+  background: rgba(4,7,14,.65);
+}
+
+.footer-inner {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: #647085;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.footer-mark {
+  flex-shrink: 0;
+  color: #93a6ba;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 700px) {
+  .nav {
+    padding: 0 max(24px, calc((100% - 900px)/2));
   }
 
-  .pills {
-    margin-top: 26px;
+  .content {
+    padding-top: 35px;
+    padding-bottom: 55px;
   }
 }
 
-@media (max-width: 360px) {
-  .partner {
-    margin-left: 2px;
-    font-size: 11px;
+@media (max-width: 420px) {
+  .container {
+    width: calc(100% - 20px);
   }
 
-  .top-tag {
-    padding: 6px 7px;
+  .nav {
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .nav-right {
+    padding: 6px 8px;
     font-size: 9px;
   }
 
-  footer {
+  .hero {
+    border-radius: 15px;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primary,
+  .secondary-link {
+    width: 100%;
+  }
+
+  .footer-inner {
     align-items: flex-start;
-  }
-
-  .footer-tag {
-    font-size: 9px;
+    padding: 14px 0;
   }
 }
 </style>
 </head>
 
 <body>
-<header class="topbar">
-  <div class="logo">AOV</div>
+<div class="site">
 
-  <div class="brand">
-    <strong>傳說對決</strong>
-    <span>ARENA OF VALOR</span>
-  </div>
+  <header class="nav">
+    <div class="logo">AOV</div>
 
-  <div class="partner">Red Bull</div>
-
-  <div class="top-tag">
-    <i></i>十週年限定活動
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <img
-      src="aov-event.jpg"
-      alt="傳說對決活動主視覺"
-      onerror="this.style.display='none'"
-    >
-
-    <div class="hero-empty">
+    <div class="brand">
       <strong>傳說對決</strong>
-      <span>10TH ANNIVERSARY</span>
+      <small>ARENA OF VALOR</small>
     </div>
 
-    <div class="hero-label">
-      <span>✦</span> 十週年紀念活動・限定內容
+    <div class="nav-right">
+      <span>✦</span>十週年活動專區
     </div>
-  </section>
+  </header>
 
-  <section class="pills">
-    <div class="pill">
-      ● 十週年紀念活動開啟
-      <span class="new">NEW</span>
+  <main class="container">
+
+    <section class="hero">
+      <img
+        class="hero-image"
+        src="aov-event.jpg"
+        alt="活動主視覺"
+        onerror="this.remove()"
+      >
+
+      <div class="hero-shade"></div>
+
+      <div class="hero-content">
+        <div class="hero-kicker">
+          ARENA OF VALOR · SPECIAL EVENT
+        </div>
+
+        <div class="hero-title">
+          傳說對決<br>
+          <em>十週年紀念</em>
+        </div>
+
+        <div class="hero-subtitle">
+          TEN YEARS · ONE BATTLEFIELD
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+
+      <div class="badges">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          十週年主題活動
+        </div>
+
+        <div class="badge secondary">
+          ANNIVERSARY SPECIAL
+        </div>
+      </div>
+
+      <h1>
+        十週年<br>
+        <span class="accent">紀念活動</span><br>
+        正式登場
+      </h1>
+
+      <p class="description">
+        踏上熟悉的戰場，迎接全新篇章。<br>
+        探索傳說對決主題活動，<strong>掌握最新活動資訊。</strong>
+      </p>
+
+      <div class="actions">
+        <a
+          class="primary"
+          href="https://lin.ee/Y3mziIVe"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          查看活動資訊
+          <span class="arrow">↗</span>
+        </a>
+
+        <a
+          class="secondary-link"
+          href="https://moba.garena.tw/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          官方網站 →
+        </a>
+      </div>
+
+      <div class="info-line">
+        活動內容與相關資訊請以官方公告為準。
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>傳說對決主題活動資訊頁</span>
+      <span class="footer-mark">ARENA OF VALOR</span>
     </div>
-
-    <div class="pill secondary">
-      十週年限定活動・LIMITED EDITION
-    </div>
-  </section>
-
-  <h1>十週年<br>紀念福利<br>開啟</h1>
-
-  <p class="intro">
-    傳說對決十週年主題活動資訊。<br>
-    探索活動內容與紀念福利，<strong>掌握最新消息。</strong>
-  </p>
-
-  <a
-    class="cta"
-    href="https://lin.ee/Y3mziIVe"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    查看活動資訊 <span>→</span>
-  </a>
-
-  <footer>
-    <span>
-      十週年活動資訊・傳說對決主題頁
-    </span>
-    <span class="footer-tag">✦ 活動專區</span>
   </footer>
-</main>
+
+</div>
 </body>
 </html>
 ```
